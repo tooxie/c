@@ -40,7 +40,7 @@ int calc(int size, int* nn, int count) {
     if (size == 1) { return count; }
 
     int res = multiply(size, nn);
-    char s[6];
+    char s[32];
     sprintf(s, "%d", res);
     int l = strlen(s);
     int sl[l];
@@ -50,7 +50,7 @@ int calc(int size, int* nn, int count) {
 }
 
 int persistence(int n) {
-    char s[6];
+    char s[32];
     sprintf(s, "%d", n);
     int l = strlen(s);
     int nn[l];
