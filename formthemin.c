@@ -24,20 +24,19 @@ unsigned long long minValue(const int* values, const size_t len)
     int num_len = 0;
 
     for (int i = 0; i < len; i++) {
-        int pos = 0;
+        int pos = num_len;
         int v = values[i];
         bool dupe = false;
         bool found = false;
 
         for (int j = 0; j < num_len; j++) {
-            pos = found ? pos : j;
-
             // Ignore duplicates
             if (num[j] == v) {
                 dupe = true;
                 break;
             }
             if (num[j] > v) {
+                pos = found ? pos : j;
                 found = true;
                 // Make room for `v` by moving the right-most element one
                 // position to the right
