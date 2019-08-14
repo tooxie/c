@@ -51,6 +51,8 @@ int main(int argc, char* argv[]) {
 /*
  * Top-voted solution:
  *
+ * #include <stdbool.h>
+ *
  * bool isValidWalk(const char *walk) {
  *   if (strlen(walk) != 10) return 0;
  *
