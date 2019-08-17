@@ -42,3 +42,36 @@ int main(int argc, char* argv[])
     if (argc != 2) { printf("Invalid argument\n"); return 1; }
     printf("%s\n", rot13(argv[1]));
 }
+
+/*
+ * Top-voted solution:
+ *
+ * #include <stddef.h>
+ * #include <stdio.h>
+ *
+ * #define NLETTERS 26
+ * #define ROT 13
+ *
+ * #define IS_UPPER(c) c >= 'A' && c <= 'Z' ? 1 : 0
+ * #define IS_LOWER(c) c >= 'a' && c <= 'z' ? 1 : 0
+ *
+ * char *rot13(const char *src)
+ * {
+ *     int len, i;
+ *     char *des;
+ *
+ *     len = strlen(src);
+ *     des = (char*)calloc(len, sizeof(char));
+ *
+ *     for (i=0;i<len;i++) {
+ *       if (IS_UPPER(src[i])) {
+ *         des[i] = (((src[i] - 'A') + ROT) % NLETTERS) + 'A';
+ *       } else if (IS_LOWER(src[i])) {
+ *         des[i] = (((src[i] - 'a') + ROT) % NLETTERS) + 'a';
+ *       } else {
+ *         des[i] = src[i];
+ *       }
+ *     }
+ *     return des;
+ * }
+ */
