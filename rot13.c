@@ -10,21 +10,33 @@
  */
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
+int rotate (int i, int r)
+{
+    return (((i + 13) - r) % 26) + r;
+}
+
+int itor13(int i)
+{
+    if (i > 64 && i < 91) return rotate(i, 65);
+    if (i > 96 && i < 123) return rotate(i, 97);
+
+    return i;
+}
 
 char* rot13(const char *s)
 {
     char* rot = (char*) malloc(sizeof(char) * (strlen(s) + 1));
     rot[0] = '\0';
     for (;*s;s++) {
-        printf("%i -> %i\n", *s, (int)*s + 13);
-        char c[2] = {(int)*s + 13, '\0'};
+        char c[2] = {itor13((int)*s), '\0'};
         strncat(rot, c, 2);
     }
 
     return rot;
 }
 
+#include <stdio.h>
 int main(int argc, char* argv[])
 {
     if (argc != 2) { printf("Invalid argument\n"); return 1; }
